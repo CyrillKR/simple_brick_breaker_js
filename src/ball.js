@@ -1,10 +1,10 @@
 export default class Ball {
-  constructor(gameWidth, gameHeight) {
+  constructor(game) {
     this.image = document.querySelector("#game-ball");
     this.size = 30;
 
-    this.gameWidth = gameWidth;
-    this.gameHeight = gameHeight;
+    this.gameWidth = game.gameWidth;
+    this.gameHeight = game.gameHeight;
 
     this.speed = {
       x: 4,
@@ -15,16 +15,6 @@ export default class Ball {
       x: 10,
       y: 10,
     };
-  }
-
-  draw(ctx) {
-    ctx.drawImage(
-      this.image,
-      this.position.x,
-      this.position.y,
-      this.size,
-      this.size
-    );
   }
 
   update(deltaTime) {
@@ -43,5 +33,15 @@ export default class Ball {
     ) {
       this.speed.y = -this.speed.y;
     }
+  }
+
+  draw(ctx) {
+    ctx.drawImage(
+      this.image,
+      this.position.x,
+      this.position.y,
+      this.size,
+      this.size
+    );
   }
 }
