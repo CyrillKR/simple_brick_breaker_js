@@ -1,0 +1,22 @@
+export default class Brick {
+  constructor(game, position) {
+    this.game = game;
+
+    this.image = document.querySelector("#game-brick");
+    this.position = position;
+    this.width = 52;
+    this.height = 24;
+  }
+
+  update() {}
+
+  draw(ctx) {
+    ctx.drawImage(
+      this.image,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
+  }
+}
