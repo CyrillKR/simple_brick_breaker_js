@@ -1,11 +1,13 @@
+import { BRICK_CONFIG } from "./config.js";
+
 export default class Brick {
   constructor(game, position) {
     this.game = game;
 
     this.image = document.querySelector("#game-brick");
     this.position = position;
-    this.width = 52;
-    this.height = 24;
+    this.width = BRICK_CONFIG.WIDTH;
+    this.height = BRICK_CONFIG.HEIGHT;
   }
 
   update() {}
@@ -18,5 +20,9 @@ export default class Brick {
       this.width,
       this.height
     );
+  }
+
+  static getWidth() {
+    return this.width;
   }
 }

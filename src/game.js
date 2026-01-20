@@ -1,7 +1,8 @@
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
-import Brick from "./brick.js";
+import { flattenArray } from "./utils.js";
 import InputHandler from "./inputHandler.js";
+import { level1, generateLevel } from "./levels.js";
 
 export default class Game {
   constructor(gameWidth, gameHeight) {
@@ -13,11 +14,8 @@ export default class Game {
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
 
-    let bricks = [];
-
-    for (let i = 0; i < 10; i++) {
-      bricks.push(new Brick(this, { x: i * 52, y: 30 }));
-    }
+    let bricks = generateLevel(this, level1);
+    console.log(bricks);
 
     this.gameObjects = [this.ball, this.paddle, ...bricks];
 
